@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>E-Commerce Web Application</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
+<h1><%= "Fitora" %>
 </h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
+<a href="category_save.jsp">Add Category</a>
 </body>
 </html>
