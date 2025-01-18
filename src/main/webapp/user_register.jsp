@@ -179,7 +179,7 @@
     <div class="alert alert-danger"><%= error %></div>
     <% } %>
 
-    <form id="registerFormFields">
+    <form id="registerFormFields" action="user-save" method="post">
         <div class="input-icon">
             <i class="bi bi-person"></i>
             <input type="text" class="form-control" placeholder="Choose a username" required>
