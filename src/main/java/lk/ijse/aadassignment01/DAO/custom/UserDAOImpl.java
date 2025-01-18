@@ -1,4 +1,6 @@
 package lk.ijse.aadassignment01.DAO.custom;
 
-public class UserDAOImpl {
+import lk.ijse.aadassignment01.DAO.UserDAO;
+
+public class UserDAOImpl implements UserDAO {
 }

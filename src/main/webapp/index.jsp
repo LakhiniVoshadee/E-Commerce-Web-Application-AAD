@@ -179,7 +179,7 @@
                     <a class="nav-link"  href="category.jsp">Collections</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Products</a>
+                    <a class="nav-link" href="product.jsp">Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>

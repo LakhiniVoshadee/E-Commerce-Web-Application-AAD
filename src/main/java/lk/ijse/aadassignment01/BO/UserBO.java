@@ -1,4 +1,4 @@
 package lk.ijse.aadassignment01.BO;
 
-public interface UserBO {
+public interface UserBO extends SuperBO{
 }

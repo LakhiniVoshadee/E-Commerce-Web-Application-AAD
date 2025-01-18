@@ -37,14 +37,13 @@ public class CategorySaveServlet extends HttpServlet {
             preparedStatement.close();
             connection.close();
             if (i>0){
-                resp.sendRedirect("category_save.jsp?message=Category Saved Successfully!");
+                resp.sendRedirect("category.jsp?message=Category Saved Successfully!");
             }else {
-                resp.sendRedirect("category_save.jsp?error=Something went wrong!");
+                resp.sendRedirect("category.jsp?error=Something went wrong!");
             }
 
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } catch (SQLException e) {
 
         }
     }

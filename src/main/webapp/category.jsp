@@ -38,6 +38,37 @@
         .modal-content {
             border-radius: 0;
         }
+
+        .category-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .category-actions {
+            opacity: 0.7;
+            transition: opacity 0.2s ease;
+        }
+
+        .category-card:hover .category-actions {
+            opacity: 1;
+        }
+
+        .category-id {
+            font-size: 0.875rem;
+            color: #6c757d;
+        }
+
+        .category-image {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+            background-color: #f8f9fa;
+        }
         .category-image {
             width: 80px;
             height: 80px;
@@ -46,26 +77,7 @@
     </style>
 </head>
 <body>
-<%
-    String message = request.getParameter("message");
-    String error = request.getParameter("error");
-%>
 
-<%
-    if (message!=null){
-%>
-<div style="color: green"><%=message%></div>
-<%
-    }
-%>
-
-<%
-    if (error!=null){
-%>
-<div style="color: red"><%=error%></div>
-<%
-    }
-%>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
     <div class="container">
@@ -82,51 +94,57 @@
                 <i class="fas fa-plus me-2"></i>Add Category
             </button>
         </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-hover" id="categoryTable" class="category-table">
-                    <thead>
-                    <tr>
-                        <th>Category ID</th>
-                       <%-- <th>Image</th>--%>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody id="category-table-list">
-                   <%-- <tr>
-                        <td>CAT001</td>
-                        <td><img src="" alt="Luxury Wear" class="category-image"></td>
-                        <td>Luxury Wear</td>
-                        <td>Premium designer clothing collection</td>
-                        <td>
-                            <button class="btn btn-sm btn-outline-dark me-2">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                            <button class="btn btn-sm btn-outline-danger">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>CAT002</td>
-                        <td><img src="" alt="Accessories" class="category-image"></td>
-                        <td>Accessories</td>
-                        <td>High-end fashion accessories</td>
-                        <td>
-                            <button class="btn btn-sm btn-outline-dark me-2">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                            <button class="btn btn-sm btn-outline-danger">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </td>
-                    </tr>--%>
-                    </tbody>
-                </table>
+        <div class="container py-4">
+            <h2 class="mb-4">Categories</h2>
+            <div class="row g-4">
+                <!-- Category Card 1 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="category-card card h-100">
+                        <img src="" class="category-image card-img-top" alt="">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="card-title mb-0"></h5>
+                                <span class="category-id">CAT001</span>
+                            </div>
+                            <p class="card-text"></p>
+                            <div class="category-actions mt-3">
+                                <button class="btn btn-sm btn-outline-dark me-2" onclick="editCategory()">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger" onclick="deleteCategory()">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category Card 2 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="category-card card h-100">
+                        <img src="https://via.placeholder.com/400x200" class="category-image card-img-top" alt="Accessories">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="card-title mb-0">Accessories</h5>
+                                <span class="category-id">CAT002</span>
+                            </div>
+                            <p class="card-text">High-end fashion accessories</p>
+                            <div class="category-actions mt-3">
+                                <button class="btn btn-sm btn-outline-dark me-2">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
+
     </div>
 </div>
 
@@ -139,6 +157,26 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
+                <%
+                    String message = request.getParameter("message");
+                    String error = request.getParameter("error");
+                %>
+
+                <%
+                    if (message!=null){
+                %>
+                <div style="color: green"><%=message%></div>
+                <%
+                    }
+                %>
+
+                <%
+                    if (error!=null){
+                %>
+                <div style="color: red"><%=error%></div>
+                <%
+                    }
+                %>
                 <form id="categoryForm" action="category-save" method="post">
                     <%--<div class="mb-3">
                         <label class="form-label">Category ID</label>

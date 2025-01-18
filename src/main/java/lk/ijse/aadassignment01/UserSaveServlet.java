@@ -26,31 +26,7 @@ public class UserSaveServlet extends HttpServlet {
         String confirmPassword = req.getParameter("confirmPassword");
         String active = "Active";
 
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
 
-            Connection connection = DriverManager.getConnection(DB_URL, DB_URL, DB_PASSWORD);
-            String sql = "insert into users values(?,?,?,?,?)";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1,username);
-            preparedStatement.setString(2,email);
-            preparedStatement.setString(3,password);
-            preparedStatement.setString(4,confirmPassword);
-            preparedStatement.setString(5,active);
-
-            int i = preparedStatement.executeUpdate();
-            preparedStatement.close();
-            connection.close();
-
-            if(i>0){
-                resp.getWriter().println("user-save.jsp?message=User Saved Successfully");
-            }else {
-                resp.getWriter().println("user-save.jsp?message=User Save Failed");
-            }
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
 
 
     }
