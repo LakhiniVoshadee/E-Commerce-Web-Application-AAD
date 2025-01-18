@@ -99,6 +99,48 @@
             border-color: rgba(255, 255, 255, 0.3);
             box-shadow: none;
         }
+        .btn-shop {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .btn-shop:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-shop::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #000;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-shop:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .btn-shop i {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-shop:hover i {
+            transform: translateX(5px);
+        }
 
         /* Utility Classes */
         .bi {
@@ -147,7 +189,7 @@
                 <a href="#" class="btn btn-outline-dark me-2">
                     <i class="bi bi-search"></i>
                 </a>
-                <a href="user_login.jsp" class="btn btn-outline-dark me-2">
+                <a href="user_register.jsp" class="btn btn-outline-dark me-2">
                     <i class="bi bi-person"></i>
                 </a>
                 <a href="#" class="btn btn-outline-dark position-relative">
@@ -169,10 +211,10 @@
                 <div class="col-lg-6">
                     <h1 class="display-3 fw-bold text-white mb-4">Autumn Collection 2023</h1>
                     <p class="lead text-white mb-5">Discover our latest collection inspired by urban sophistication and sustainable luxury.</p>
-                    <button class="btn btn-light btn-lg px-5">
-                        <a href="user_login.jsp"> Shop Now</a>
-                        <i class="bi bi-arrow-right ms-2"></i>
-                    </button>
+                    <a href="user_register.jsp" class="btn btn-shop btn-lg d-inline-flex align-items-center text-decoration-none">
+                        Shop Now
+                        <i class="bi bi-arrow-right ms-3"></i>
+                    </a>
                 </div>
             </div>
         </div>

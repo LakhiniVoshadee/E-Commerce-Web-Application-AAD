@@ -168,6 +168,17 @@
         </li>
     </ul>
 
+    <%
+        String message = request.getAttribute("message") != null ? (String) request.getAttribute("message") : null;
+        String error = request.getAttribute("error") != null ? (String) request.getAttribute("error") : null;
+    %>
+    <% if (message != null) { %>
+    <div class="alert alert-success"><%= message %></div>
+    <% } %>
+    <% if (error != null) { %>
+    <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+
     <form id="registerFormFields">
         <div class="input-icon">
             <i class="bi bi-person"></i>
@@ -190,6 +201,19 @@
 </div>
 
 <script>
+    <% if (message != null) { %>
+    Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: '<%= message %>',
+    });
+    <% } else if (error != null) { %>
+    Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: '<%= error %>',
+    });
+    <% } %>
     function showLogin() {
         document.getElementById('loginForm').style.display = 'block';
         document.getElementById('registerForm').style.display = 'none';
