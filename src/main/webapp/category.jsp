@@ -1,4 +1,5 @@
-<%--
+<%@ page import="lk.ijse.aadassignment01.dto.CategoryDTO" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: Voshadee
   Date: 1/12/2025
@@ -96,10 +97,38 @@
         </div>
         <div class="container py-4">
             <h2 class="mb-4">Categories</h2>
+            <a href="category_list">Load All Customers</a><br>
             <div class="row g-4">
                 <!-- Category Card 1 -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="category-card card h-100">
+               <%-- <%
+                    List<CategoryDTO> categoryDataList = (List<CategoryDTO>) request.getAttribute("categories");
+                    if (categoryDataList != null && !categoryDataList.isEmpty()) {
+                %>
+                <table border="1">
+                    <thead>
+                    <tr>
+                        <th>Collection ID</th>
+                        <th>Collection Name</th>
+                        <th>Description</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% for (CategoryDTO categoryDTO : categoryDataList) { %>
+                    <tr>
+                        <td><%= categoryDTO.getCategory_id() %></td>
+                        <td><%= categoryDTO.getName() %></td>
+                        <td><%= categoryDTO.getDescription() %></td>
+
+                    </tr>
+                    <% } %>
+                    </tbody>
+                </table>
+                <%
+                    }
+                %>--%>
+                <%--<div class="col-12 col-md-6 col-lg-4"  >
+                    <div class="category-card card h-100" >
                         <img src="" class="category-image card-img-top" alt="">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-start mb-2">
@@ -108,7 +137,7 @@
                             </div>
                             <p class="card-text"></p>
                             <div class="category-actions mt-3">
-                                <button class="btn btn-sm btn-outline-dark me-2" onclick="editCategory()">
+                                <button class="btn btn-sm btn-outline-dark me-2"  onclick="editCategory()">
                                     <i class="fas fa-edit"></i>
                                 </button>
                                 <button class="btn btn-sm btn-outline-danger" onclick="deleteCategory()">
@@ -117,9 +146,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--%>
 
-                <!-- Category Card 2 -->
+               <%-- <!-- Category Card 2 -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="category-card card h-100">
                         <img src="https://via.placeholder.com/400x200" class="category-image card-img-top" alt="Accessories">
@@ -139,7 +168,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--%>
 
 
             </div>

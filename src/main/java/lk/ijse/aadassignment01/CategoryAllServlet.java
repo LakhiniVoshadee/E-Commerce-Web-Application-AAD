@@ -13,7 +13,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "CategoryAllServlet", value = "/category-all")
+@WebServlet(name = "CategoryAllServlet", value = "/category_list")
 public class CategoryAllServlet extends HttpServlet {
     String DB_URL = "jdbc:mysql://localhost:3306/ecommerce";
     String DB_USER = "root";
@@ -21,7 +21,7 @@ public class CategoryAllServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<CategoryDTO> customerList = new ArrayList<>();
+        List<CategoryDTO> categoryList = new ArrayList<>();
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -40,15 +40,15 @@ public class CategoryAllServlet extends HttpServlet {
                         resultSet.getString(2),
                         resultSet.getString(3)
                 );
-                customerList.add(categoryDTO);
+                categoryList.add(categoryDTO);
             }
-            req.setAttribute("customers",customerList);
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("customer-list.jsp");
+            req.setAttribute("categories",categoryList);
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("category_list.jsp");
             requestDispatcher.forward(req,resp);
 
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-            resp.sendRedirect("customer-list.jsp?error=Failed to retrieve customers");
+            resp.sendRedirect("category_list.jsp?error=Failed to retrieve categories");
 
         }
     }

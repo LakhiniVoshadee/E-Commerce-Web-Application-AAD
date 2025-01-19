@@ -1,58 +1,71 @@
 <%@ page import="lk.ijse.aadassignment01.dto.CategoryDTO" %>
-<%@ page import="java.util.List" %><%--
-  Created by IntelliJ IDEA.
-  User: Voshadee
-  Date: 1/12/2025
-  Time: 7:28 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Category List</title>
+    <style>
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .card-title {
+            color: #333;
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-id {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .card-description {
+            color: #555;
+            line-height: 1.5;
+        }
+
+        body {
+            background: #f5f5f5;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+    </style>
 </head>
 <body>
 <%
-    List<CategoryDTO> categoryDataList = (List<CategoryDTO>) request.getAttribute("customers");
+    List<CategoryDTO> categoryDataList = (List<CategoryDTO>) request.getAttribute("categories");
     if (categoryDataList != null && !categoryDataList.isEmpty()) {
 %>
-<section id="CustomerForm">
-   <%-- <div id="customerHeaderSection" class="customerHeader-section">
-        <h2> Customer <span>Manage</span></h2>
-        <a href="category_save.jsp">Add Category</a>
-    </div>--%>
-
-
-
-
-    <!-- -------------- Category Table -------------- -->
-    <table id="categoryTable" class="category-table">
-        <thead>
-        <tr>
-            <th>Category ID</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Update</th>
-            <th>Delete</th>
-        </tr>
-        </thead>
-
-        <tbody id="category-table-list">
-        <% for (CategoryDTO categoryDTO : categoryDataList) { %>
-        <tr>
-            <td><%= categoryDTO.getCategory_id() %></td>
-            <td><%= categoryDTO.getName() %></td>
-            <td><%= categoryDTO.getDescription() %></td>
-
-        </tr>
-        <% } %>
-
-        </tbody>
-    </table>
-    <%
-        }
-    %>
-</section>
-
+<div class="card-container">
+    <% for (CategoryDTO categoryDTO : categoryDataList) { %>
+    <div class="card">
+        <div class="card-id">Collection ID: <%= categoryDTO.getCategory_id() %></div>
+        <div class="card-title"><%= categoryDTO.getName() %></div>
+        <div class="card-description"><%= categoryDTO.getDescription() %></div>
+    </div>
+    <% } %>
+</div>
+<%
+    }
+%>
 </body>
 </html>
