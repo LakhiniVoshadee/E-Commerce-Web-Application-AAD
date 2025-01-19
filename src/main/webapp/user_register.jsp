@@ -150,7 +150,8 @@
             <i class="bi bi-lock"></i>
             <input type="password" class="form-control" placeholder="Enter your password" required>
         </div>
-        <button type="submit" class="btn btn-primary">Sign In</button>
+        <button type="submit" class="btn btn-primary"><a class="nav-link text-center" href="user_dashboard.jsp"> Sign In</a></button>
+        <button type="submit" class="btn btn-primary"> <a class="nav-link text-center" href="admin_dashboard.jsp">Admin Sign In</a></button>
     </form>
 </div>
 

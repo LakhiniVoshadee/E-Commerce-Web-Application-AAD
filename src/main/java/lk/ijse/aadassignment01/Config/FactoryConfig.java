@@ -1,7 +1,9 @@
 package lk.ijse.aadassignment01.Config;
 
+import lk.ijse.aadassignment01.Entity.Cart;
 import lk.ijse.aadassignment01.Entity.Category;
 import lk.ijse.aadassignment01.Entity.Product;
+import lk.ijse.aadassignment01.Entity.Users;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -18,17 +20,19 @@ public class FactoryConfig {
 
         configuration.addAnnotatedClass(Category.class);
         configuration.addAnnotatedClass(Product.class);
+        configuration.addAnnotatedClass(Users.class);
+        configuration.addAnnotatedClass(Cart.class);
 
 
         sessionFactory = configuration.buildSessionFactory();
     }
 
-public static FactoryConfig getInstance() {
-    return (factoryConfig == null) ?
-          factoryConfig =  new FactoryConfig() : factoryConfig;
-}
+    public static FactoryConfig getInstance() {
+        return (factoryConfig == null) ?
+                factoryConfig = new FactoryConfig() : factoryConfig;
+    }
 
-public Session getSession() {
-    return sessionFactory.openSession();
-}
+    public Session getSession() {
+        return sessionFactory.openSession();
+    }
 }

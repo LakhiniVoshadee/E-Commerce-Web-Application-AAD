@@ -1,8 +1,4 @@
-<%@ page import="lk.ijse.aadassignment01.Entity.Category" %>
-<%@ page import="lk.ijse.aadassignment01.CategoryLoader" %>
-<%@ page import="lk.ijse.aadassignment01.CategoryLoader.Category" %>
-<%@ page import="java.util.List" %>
-<%@ page import="java.sql.*" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: Voshadee
   Date: 1/12/2025
@@ -10,19 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<%
-    // Database connection details
-    String DB_URL = "jdbc:mysql://localhost:3306/ecommerce";
-    String DB_USER = "root";
-    String DB_PASSWORD = "IJSE@123";
-
-    // Load categories from database
-    Class.forName("com.mysql.cj.jdbc.Driver");
-    Connection conn = null;
-    PreparedStatement stmt = null;
-    ResultSet rs = null;
-%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -212,28 +195,7 @@
                         <label class="form-label" for="category_id">Category ID</label>
                         <select class="form-select" name="category_id" id="category_id" required>
                             <option value="">Select Category</option>
-                            <%
-                                try {
-                                    conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-                                    String sql = "SELECT id, name FROM categories";
-                                    stmt = conn.prepareStatement(sql);
-                                    rs = stmt.executeQuery();
 
-                                    while(rs.next()) {
-                                        int categoryId = rs.getInt("id");
-                                        String categoryName = rs.getString("name");
-                            %>
-                            <option value="<%= categoryId %>"><%= categoryName %></option>
-                            <%
-                                    }
-                                } catch(SQLException e) {
-                                    e.printStackTrace();
-                                } finally {
-                                    if(rs != null) try { rs.close(); } catch(SQLException e) {}
-                                    if(stmt != null) try { stmt.close(); } catch(SQLException e) {}
-                                    if(conn != null) try { conn.close(); } catch(SQLException e) {}
-                                }
-                            %>
                         </select>
                     </div>
                     <div class="modal-footer">

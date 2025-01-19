@@ -41,9 +41,9 @@ public class CategorySaveServlet extends HttpServlet {
             int i = preparedStatement.executeUpdate();
             preparedStatement.close();
             connection.close();
-            if (i>0){
+            if (i > 0) {
                 resp.sendRedirect("category.jsp?message=Category Saved Successfully!");
-            }else {
+            } else {
                 resp.sendRedirect("category.jsp?error=Something went wrong!");
             }
 
