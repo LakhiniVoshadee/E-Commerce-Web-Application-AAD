@@ -25,7 +25,7 @@ public class ProductSaveServlet extends HttpServlet {
             // Get form parameters
             String productName = req.getParameter("product_name");
             String description = req.getParameter("description");
-            BigDecimal unitPrice = new BigDecimal(req.getParameter("unit_price"));
+            BigDecimal unitPrice = new BigDecimal(req.getParameter("product_price"));
             int stock = Integer.parseInt(req.getParameter("stock"));
             int categoryId = Integer.parseInt(req.getParameter("category_id"));
 
@@ -34,7 +34,7 @@ public class ProductSaveServlet extends HttpServlet {
 
             // Save to database
             try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
-                String sql = "INSERT INTO products (product_name, description, unit_price, stock, category_id) VALUES (?, ?, ?, ?, ?)";
+                String sql = "INSERT INTO products (product_name, description, product_price, stock, category_id) VALUES (?, ?, ?, ?, ?)";
 
                 try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
                     preparedStatement.setString(1, productName);
