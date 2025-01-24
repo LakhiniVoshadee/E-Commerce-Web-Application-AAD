@@ -51,6 +51,8 @@
     <button type="submit">Save User</button>
 
     <a href="user_list">Load Users</a>
+    <a href="user_update.jsp">Update Users</a>
+    <a href="user_delete.jsp">Delete Users</a>
 
 </form>
 </body>

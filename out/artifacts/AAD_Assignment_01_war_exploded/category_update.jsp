@@ -36,14 +36,14 @@
 
   <form action="category-update" method="post">
     <label for="category_id">Collection ID:</label><br>
-    <input type="text" id="category_id" name="id" required><br><br>
+    <input type="text" id="category_id" name="category_id" required><br><br>
 
 
     <label for="category_name">Collection Name:</label><br>
-    <input type="text" id="category_name" name="name" required><br><br>
+    <input type="text" id="category_name" name="category_name" required><br><br>
 
     <label for="category_description">Collection Description:</label><br>
-    <input type="text" id="category_description" name="description" required><br><br>
+    <input type="text" id="category_description" name="category_description" required><br><br>
 
     <button type="submit">Update Collection</button>
   </form>

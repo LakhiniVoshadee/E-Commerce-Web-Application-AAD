@@ -32,8 +32,8 @@
     }
 %>
 <form action="category-delete" method="post">
-    <label for="id">ID:</label><br>
-    <input type="text" id="id" name="id" required><br><br>
+    <label for="category_id">ID:</label><br>
+    <input type="text" id="category_id" name="category_id" required><br><br>
 
     <button type="submit">Delete Customer</button>
 

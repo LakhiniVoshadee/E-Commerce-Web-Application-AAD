@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Collection Delete</title>
+    <title>User Delete</title>
 </head>
 <body>
 <%
@@ -31,9 +31,9 @@
 <%
     }
 %>
-<form action="category-delete" method="post">
-    <label for="category_id">ID:</label><br>
-    <input type="text" id="category_id" name="category_id" required><br><br>
+<form action="user-delete" method="post">
+    <label for="user_id">ID:</label><br>
+    <input type="text" id="user_id" name="user_id" required><br><br>
 
     <button type="submit">Delete Customer</button>
 

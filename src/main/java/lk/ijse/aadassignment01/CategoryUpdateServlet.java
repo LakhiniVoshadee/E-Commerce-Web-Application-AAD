@@ -25,12 +25,12 @@ public class CategoryUpdateServlet extends HttpServlet {
         String category_id = req.getParameter("category_id");
         String name = req.getParameter("name");
         String description = req.getParameter("description");
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
-            String sql = "UPDATE categories SET name = ?, description = ? WHERE category_id = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE categories SET name = ?, description = ? WHERE category_id = ?")) {
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, description);
             preparedStatement.setString(3, category_id);
@@ -39,12 +39,12 @@ public class CategoryUpdateServlet extends HttpServlet {
 
             if (updateRowCount > 0) {
                 resp.sendRedirect("category_update.jsp?message=Category Updated Successfully");
-            }else {
-                resp.sendRedirect("category_update.jsp?error=Something went wrong");
+            } else {
+                resp.sendRedirect("category_update.jsp?error=Category not found");
             }
         } catch (ClassNotFoundException | SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            resp.sendRedirect("category_update.jsp?error=Database error");
         }
-
     }
 }
