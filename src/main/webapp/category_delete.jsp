@@ -1,19 +1,16 @@
 <%--
-&lt;%&ndash;
   Created by IntelliJ IDEA.
   User: Voshadee
-  Date: 1/12/2025
-  Time: 7:28 PM
+  Date: 1/24/2025
+  Time: 9:44 AM
   To change this template use File | Settings | File Templates.
-&ndash;%&gt;
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Category Save</title>
+    <title>Collection Delete</title>
 </head>
 <body>
-<h1>Save Category</h1><br>
-
 <%
     String message = request.getParameter("message");
     String error = request.getParameter("error");
@@ -34,18 +31,12 @@
 <%
     }
 %>
+<form action="category-delete" method="post">
+    <label for="id">ID:</label><br>
+    <input type="text" id="id" name="id" required><br><br>
 
-<form action="category-save" method="post">
-    <label for="category_name">Name:</label><br>
-    <input type="text" id="category_name" name="name" required><br><br>
-
-    <label for="category_description">Description:</label><br>
-    <input type="text" id="category_description" name="description" required><br><br>
-
-
-    <button type="submit">Save Category</button>
+    <button type="submit">Delete Customer</button>
 
 </form>
 </body>
 </html>
---%>
