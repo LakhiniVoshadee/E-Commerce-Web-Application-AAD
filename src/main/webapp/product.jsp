@@ -140,6 +140,8 @@
                             </div>
                         </div>
                     </div>
+                    <a href="product_list">Load Products</a>
+                    <a href="product_update.jsp">Update Products</a>
                 </div>
             </div>
         </div>
@@ -243,6 +245,8 @@
                         <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-dark">Save Product</button>
                     </div>
+
+
                 </form>
             </div>
         </div>

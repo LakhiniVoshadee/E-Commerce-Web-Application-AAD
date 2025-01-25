@@ -1,61 +1,68 @@
 package lk.ijse.aadassignment01;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lk.ijse.aadassignment01.dto.ProductDTO;
+import lk.ijse.aadassignment01.dto.CategoryDTO;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "ProductAllServlet", value = "/product_list")
-
 public class ProductAllServlet extends HttpServlet {
-
+    String DB_URL = "jdbc:mysql://localhost:3306/ecommerce";
+    String DB_USER = "root";
+    String DB_PASSWORD = "IJSE@123";
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<ProductDTO> products = new ArrayList<>();
-        DataSource ds = null;
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<ProductDTO> productList = new ArrayList<>();
 
         try {
-            // Get DataSource via JNDI
-            Context initContext = new InitialContext();
-            Context envContext = (Context) initContext.lookup("java:comp/env");
-            ds = (DataSource) envContext.lookup("jdbc/pool");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(
+                    DB_URL,
+                    DB_USER,
+                    DB_PASSWORD
+            );
 
-            try (Connection connection = ds.getConnection();
-                 PreparedStatement ps = connection.prepareStatement("SELECT product_id, product_name, price, description FROM products")) {
+            String sql = "SELECT p.product_id, p.product_name, p.description, p.product_price, p.stock, c.category_id, c.name, c.description " +
+                    "FROM products p " +
+                    "JOIN categories c ON p.category_id = c.category_id";
+            Statement stm = connection.createStatement();
+            ResultSet resultSet = stm.executeQuery(sql);
+            while (resultSet.next()) {
+                CategoryDTO categoryDTO = new CategoryDTO(
+                        resultSet.getString("category_id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("c.description")
+                );
 
-                ResultSet rs = ps.executeQuery();
-                while (rs.next()) {
-                    ProductDTO product = new ProductDTO();
-                    product.setProduct_id(rs.getInt("product_id"));
-                    product.setProduct_name(rs.getString("name"));
-                //    product.getProduct_price(rs.getDouble("price"));
-                    product.setDescription(rs.getString("description"));
-                    products.add(product);
-                }
+                ProductDTO productDTO = new ProductDTO(
+                        resultSet.getInt("product_id"),
+                        resultSet.getString("product_name"),
+                        resultSet.getString("description"),
+                        resultSet.getDouble("product_price"),
+                        resultSet.getInt("stock"),
+                        categoryDTO
+                );
+
+                productList.add(productDTO);
             }
-        } catch (Exception e) {
+
+            req.setAttribute("products", productList);
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("product_list.jsp");
+            requestDispatcher.forward(req, resp);
+
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
+            resp.sendRedirect("product_list.jsp?error=Failed to retrieve products");
         }
-
-        // Set product list as request attribute
-        request.setAttribute("products", products);
-
-        // Forward to JSP page
-        request.getRequestDispatcher("WEB-INF/product_list.jsp").forward(request, response);
     }
 }
-
-
