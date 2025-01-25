@@ -1,24 +1,25 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<h2>Login</h2>
-<%
-    String message = request.getParameter("message");
-    String error = request.getParameter("error");
-%>
-<% if (message != null) { %>
-<div style="color: green;"><%=message%></div>
-<% } %>
-<% if (error != null) { %>
-<div style="color: red;"><%=error%></div>
-<% } %>
-<form action="login" method="post">
-    <input type="text" name="user_name" placeholder="User_name" required><br>
-    <input type="password" name="password" placeholder="Password" required><br>
-    <button type="submit">Login</button>
-</form>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Login</h2>
+    <form action="user-login" method="post">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100"><a href="admin_dashboard.jsp">Dashboard</a></button>
+    </form>
+</div>
 </body>
 </html>

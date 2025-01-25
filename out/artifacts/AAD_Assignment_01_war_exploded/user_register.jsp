@@ -3,115 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Registration</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <title>Fashion Store Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f4f4f4;
+            background-image: url('/api/placeholder/1600/900');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            justify-content: center;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255,255,255,0.7);
         }
         .registration-container {
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 40px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            max-width: 450px;
             width: 100%;
-            max-width: 500px;
+            padding: 30px;
+            position: relative;
+            z-index: 10;
         }
-        .form-control {
+        .form-control, .form-select {
             background-color: #f8f9fa;
-            border: 1px solid #ced4da;
-        }
-        .form-control:focus {
-            background-color: #ffffff;
-            border-color: #495057;
-            box-shadow: none;
-        }
-        .btn-primary {
-            background-color: #343a40;
-            border-color: #212529;
+            border: 1px solid #d1d1d1;
             transition: all 0.3s ease;
         }
-        .btn-primary:hover {
-            background-color: #212529;
-            border-color: #000000;
+        .form-control:focus, .form-select:focus {
+            background-color: white;
+            border-color: #000;
+            box-shadow: 0 0 0 0.2rem rgba(0,0,0,0.1);
         }
-        .nav-links {
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-between;
+        .btn-custom {
+            background-color: #000;
+            color: white;
+            transition: all 0.3s ease;
         }
-        .status-message {
-            margin-bottom: 20px;
+        .btn-custom:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+        }
+        .form-label {
+            color: #666;
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="registration-container">
-        <h2 class="text-center mb-4">User Registration</h2>
-
-        <!-- Status Messages -->
-        <%
-            String message = request.getParameter("message");
-            String error = request.getParameter("error");
-        %>
-
-        <% if (message != null) { %>
-        <div class="alert alert-success status-message" role="alert">
-            <%= message %>
+<div class="registration-container">
+    <form action="user-register" method="post">
+        <div class="mb-3">
+            <label for="user_name" class="form-label">User Name</label>
+            <input type="text" class="form-control" id="user_name" name="user_name" required>
         </div>
-        <% } %>
 
-        <% if (error != null) { %>
-        <div class="alert alert-danger status-message" role="alert">
-            <%= error %>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
         </div>
-        <% } %>
 
-        <!-- Registration Form -->
-        <form action="user-register" method="post">
-            <div class="mb-3">
-                <label for="name" class="form-label">User Name</label>
-                <input type="text" class="form-control" id="name" name="name" required>
-            </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
 
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="address" required>
-            </div>
+        <div class="mb-3">
+            <label for="active" class="form-label">Select Role</label>
+            <select class="form-select" id="active" name="active" required>
+                <option value="">Select Role</option>
+                <option value="1">Customer</option>
+                <option value="0">Admin</option>
+            </select>
+        </div>
 
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
+        <button type="submit" class="btn btn-custom w-100 mb-3">Register</button>
+    </form>
 
-            <div class="mb-3">
-                <label for="active" class="form-label">Active Status</label>
-                <select class="form-select" id="active" name="active" required>
-                    <option value="">Select Status</option>
-                    <option value="1">Active</option>
-                    <option value="0">Inactive</option>
-                </select>
-            </div>
-
-            <button type="submit" class="btn btn-primary w-100 mb-3">Save User</button>
-
-            <%--<div class="nav-links">
-                <a href="user_list" class="btn btn-outline-secondary">Load Users</a>
-                <a href="user_update.jsp" class="btn btn-outline-secondary">Update Users</a>
-                <a href="user_delete.jsp" class="btn btn-outline-secondary">Delete Users</a>
-            </div>--%>
-        </form>
-    </div>
+    <%--<a href="user_list">user list</a>
+    <a href="user_update.jsp">Update user</a>
+    <a href="user_delete.jsp">delete user</a>--%>
+    <a href="login.jsp">Login</a>
 </div>
 
-<!-- Bootstrap JS (optional, but recommended for future interactions) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

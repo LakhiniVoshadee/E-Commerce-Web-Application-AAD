@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -22,36 +23,45 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String user_name = req.getParameter("user_name");
+        String email = req.getParameter("email");
         String password = req.getParameter("password");
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
-                String sql = "SELECT * FROM users WHERE user_name = ? AND password = ?";
-                try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                    pstmt.setString(1, user_name);
-                    pstmt.setString(2, password);
+            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
-                    try (ResultSet rs = pstmt.executeQuery()) {
-                        if (rs.next()) {
-                            // Successful login
-                            HttpSession session = req.getSession();
-                            session.setAttribute("userId", rs.getString("user_id"));
-                            session.setAttribute("username", user_name);
-                            session.setAttribute("role", rs.getString("role"));
+            String sql = "SELECT * FROM users WHERE email = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, email);
 
-                            resp.sendRedirect("dashboard.jsp");
-                        } else {
-                            // Failed login
-                            resp.sendRedirect("login.jsp?error=Invalid Credentials");
-                        }
-                    }
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                String hashedPassword = resultSet.getString("password");
+                String userName = resultSet.getString("user_name");
+                String role = resultSet.getString("active");
+
+                if (BCrypt.checkpw(password, hashedPassword)) {
+                    // Authentication success, create session
+                    HttpSession session = req.getSession();
+                    session.setAttribute("userName", userName);
+                    session.setAttribute("role", role);
+
+                    resp.sendRedirect("dashboard.jsp");
+                } else {
+                    resp.sendRedirect("login.jsp?error=Invalid Password!");
                 }
+            } else {
+                resp.sendRedirect("login.jsp?error=Email not found!");
             }
-        } catch (ClassNotFoundException | SQLException e) {
+
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
+        } catch (Exception e) {
             e.printStackTrace();
-            resp.sendRedirect("login.jsp?error=" + e.getMessage());
+            resp.sendRedirect("login.jsp?error=An error occurred!");
         }
     }
+
 }
