@@ -1,4 +1,8 @@
-<%--
+<%@ page import="javax.sql.DataSource" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.SQLException" %><%--
   Created by IntelliJ IDEA.
   User: Voshadee
   Date: 1/12/2025
@@ -6,6 +10,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.sql.*, javax.naming.*, javax.sql.DataSource" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -193,10 +198,46 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="category_id">Category ID</label>
+                        <%@ page import="java.sql.*, javax.naming.*, javax.sql.DataSource" %>
+
                         <select class="form-select" name="category_id" id="category_id" required>
                             <option value="">Select Category</option>
+                            <%-- Dynamic Category Dropdown --%>
+                            <%
+                                DataSource ds = null;
+                                Connection connection = null;
+                                PreparedStatement preparedStatement = null;
+                                ResultSet resultSet = null;
 
+                                try {
+                                    // Use JNDI to look up the DataSource
+                                    Context initContext = new InitialContext();
+                                    Context envContext = (Context) initContext.lookup("java:comp/env");
+                                    ds = (DataSource) envContext.lookup("jdbc/pool");
+
+                                    connection = ds.getConnection();
+                                    String query = "SELECT category_id, name FROM categories";
+                                    preparedStatement = connection.prepareStatement(query);
+                                    resultSet = preparedStatement.executeQuery();
+
+                                    while (resultSet.next()) {
+                                        int id = resultSet.getInt("category_id");
+                                        String name = resultSet.getString("name");
+                            %>
+                            <option value="<%= id %>"><%= name %></option>
+                            <%
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                } finally {
+                                    if (resultSet != null) try { resultSet.close(); } catch (SQLException e) { e.printStackTrace(); }
+                                    if (preparedStatement != null) try { preparedStatement.close(); } catch (SQLException e) { e.printStackTrace(); }
+                                    if (connection != null) try { connection.close(); } catch (SQLException e) { e.printStackTrace(); }
+                                }
+                            %>
                         </select>
+
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancel</button>

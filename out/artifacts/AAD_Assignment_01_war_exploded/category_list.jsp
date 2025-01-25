@@ -1,10 +1,12 @@
 <%@ page import="lk.ijse.aadassignment01.dto.CategoryDTO" %>
 <%@ page import="java.util.List" %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Category Data Table</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Collection Cards</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         :root {
             --primary-black: #0a0a0a;
@@ -15,89 +17,94 @@
         }
 
         body {
-            background: var(--primary-black);
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/free-photo/fashion-store-display_1150-2724.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: var(--pure-white);
             font-family: 'Arial', sans-serif;
         }
 
-        .table-container {
+        .card-container {
             max-width: 1200px;
             margin: 50px auto;
             padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        .table-dark {
-            background-color: var(--secondary-black);
-            border-color: var(--accent-gray);
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            backdrop-filter: blur(10px);
         }
 
-        .table-dark th {
-            background-color: var(--accent-gray);
-            color: var(--pure-white);
-            border-color: rgba(255,255,255,0.1);
+        .card-body {
+            color: var(--secondary-black);
         }
 
-        .table-dark td {
-            color: rgba(255,255,255,0.7);
-            border-color: rgba(255,255,255,0.1);
+        .card-title {
+            font-weight: bold;
+            color: var(--accent-gray);
         }
 
-        .table-hover .table-dark tbody tr:hover {
-            background-color: rgba(255,255,255,0.05);
+        .card-subtitle {
+            color: var(--accent-gray);
+            font-size: 0.9rem;
         }
 
         .action-buttons {
             display: flex;
             gap: 10px;
+            justify-content: flex-end;
         }
 
         .btn-edit, .btn-delete {
             padding: 5px 10px;
             font-size: 0.8rem;
+            background-color: var(--accent-gray);
+            color: var(--pure-white);
+            border: none;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-edit:hover, .btn-delete:hover {
+            background-color: var(--light-gray);
+            color: var(--secondary-black);
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
-<div class="table-container">
-    <h2 class="text-center mb-4">Category Data Table</h2>
-    <%
-        List<CategoryDTO> categoryDataList = (List<CategoryDTO>) request.getAttribute("categories");
+<div class="card-container">
+    <% List<CategoryDTO> categoryDataList = (List<CategoryDTO>) request.getAttribute("categories");
         if (categoryDataList != null && !categoryDataList.isEmpty()) {
-    %>
-    <table class="table table-dark table-striped table-hover">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <% for (CategoryDTO categoryDTO : categoryDataList) { %>
-        <tr>
-            <td><%= categoryDTO.getCategory_id() %></td>
-            <td><%= categoryDTO.getName() %></td>
-            <td><%= categoryDTO.getDescription() %></td>
-            <td>
-               <%-- <div class="action-buttons">
-                    <a href="category_update.jsp?id=<%= categoryDTO.getCategory_id() %>" class="btn btn-sm btn-outline-light btn-edit">
-                        <i class="fas fa-edit"></i> Edit
-                    </a>
-                    <a href="category_delete.jsp?id=<%= categoryDTO.getCategory_id() %>" class="btn btn-sm btn-outline-danger btn-delete">
-                        <i class="fas fa-trash"></i> Delete
-                    </a>
-                </div>--%>
-            </td>
-        </tr>
-        <% } %>
-        </tbody>
-    </table>
-    <% } else { %>
+            for (CategoryDTO categoryDTO : categoryDataList) { %>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title"><%= categoryDTO.getName() %></h5>
+            <h6 class="card-subtitle">ID: <%= categoryDTO.getCategory_id() %></h6>
+            <p class="card-text"><%= categoryDTO.getDescription() %></p>
+            <div class="action-buttons">
+                <a href="category_update.jsp?id=<%= categoryDTO.getCategory_id() %>" class="btn btn-edit">
+                    <i class="fas fa-edit"></i> Edit
+                </a>
+                <a href="category_delete.jsp?id=<%= categoryDTO.getCategory_id() %>" class="btn btn-delete">
+                    <i class="fas fa-trash"></i> Delete
+                </a>
+            </div>
+        </div>
+    </div>
+    <% }
+    } else { %>
     <div class="alert alert-info text-center">No categories found.</div>
     <% } %>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
 </body>
 </html>
