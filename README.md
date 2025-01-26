@@ -61,25 +61,44 @@ This is a fully functional e-commerce web application developed using JavaEE, JD
 
 ![Screenshot 2025-01-26 203005](https://github.com/user-attachments/assets/ca67da57-cb3f-46c6-a17e-d458d5fc5e5f)
 
+![Screenshot 2025-01-26 203050](https://github.com/user-attachments/assets/8a7adc45-33af-4da4-9773-98ed943be37a)
+![Screenshot 2025-01-26 203145](https://github.com/user-attachments/assets/c24fe6ba-7128-43df-9e7f-2a16c0278bf0)
+
+
+
 ### Admin Product Management
 
 ![Screenshot 2025-01-26 203557](https://github.com/user-attachments/assets/5cf8e023-06f5-42bd-a5c7-83731e568d84)
 ![Screenshot 2025-01-26 203822](https://github.com/user-attachments/assets/12e0dbe1-4b8d-4e82-a54e-d8e1cd6f0df6)
-
+![Screenshot 2025-01-26 203713](https://github.com/user-attachments/assets/43fc73d1-d9c1-4b52-9477-47629523204d)
+![Screenshot 2025-01-26 203840](https://github.com/user-attachments/assets/6178ec93-17e6-4394-a0b8-a170ecd7903a)
 
 
 ### User 
+
+#### User List
+![Screenshot 2025-01-26 214821](https://github.com/user-attachments/assets/4aeddcd9-24d3-4fdf-b0ea-c56a35d350ce)
+
 #### categories
 
-
+![Screenshot 2025-01-26 204004](https://github.com/user-attachments/assets/fc6e7a10-240a-485c-9294-8949f7158767)
 
 #### products
+![Screenshot 2025-01-26 204053](https://github.com/user-attachments/assets/34c83844-b5d9-4104-8687-bbce0db2bc08)
+
 
 
 ### Shopping Cart
+![Screenshot 2025-01-26 204146](https://github.com/user-attachments/assets/dc78e6aa-1c35-4049-ab53-cdba7bb3b069)
+
 
 
 ### Order Placement
+![Screenshot 2025-01-26 204228](https://github.com/user-attachments/assets/4546ac67-d48b-4311-9dd9-89a7164b4efe)
+
+### About Us
+![Screenshot 2025-01-26 204317](https://github.com/user-attachments/assets/60eed8e3-8318-4eef-98e3-b88af63d9a12)
+
 
 
 
