@@ -11,7 +11,7 @@ This is a fully functional e-commerce web application developed using JavaEE, JD
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/username/repository.git
+   git clone https://github.com/LakhiniVoshadee/E-Commerce-Web-Application-AAD.git
 
 ## Features
 
