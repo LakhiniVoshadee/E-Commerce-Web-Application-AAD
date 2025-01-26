@@ -9,3 +9,8 @@ This is a fully functional e-commerce web application developed using JavaEE, JD
 
 ## Installation Instructions
 
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/username/repository.git
+
+
