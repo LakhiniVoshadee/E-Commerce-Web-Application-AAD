@@ -116,7 +116,7 @@ Watch the demo video here: [E-Commerce Demo Video](https://youtu.be/your-video-l
 ## Technologies Used
 
 - **JavaEE** for backend development
-- **JDBC Pool** (e.g., HikariCP) for database connection pooling
+- **JDBC Pool** (e.g., Tomcat) for database connection pooling
 - **JSP** for the frontend user interface
 - **MySQL** as the database
   
