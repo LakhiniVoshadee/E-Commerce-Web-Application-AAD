@@ -31,16 +31,54 @@ This is a fully functional e-commerce web application developed using JavaEE, JD
   ## Screenshots
 
 ### Home Page
-![Home Page](./screenshots/home_page.png)
 
-### Product List
-![Product List](./screenshots/product_list.png)
+![Screenshot 2025-01-26 185701](https://github.com/user-attachments/assets/615e82d8-8378-496f-ad05-78080e0c8f3a)
 
-### Shopping Cart
-![Shopping Cart](./screenshots/cart.png)
+![Screenshot 2025-01-26 185718](https://github.com/user-attachments/assets/b17b10a5-2cbe-46ac-a4b3-194289894045)
+
+
+### Registration Form
+![Screenshot 2025-01-26 200222](https://github.com/user-attachments/assets/11abefaa-b6e4-4ceb-a835-89f4f62e68cb)
+
+### Login Form
+
+![Screenshot 2025-01-26 200242](https://github.com/user-attachments/assets/22a69896-aa65-470a-8f63-8505c0d8229c)
 
 ### Admin Dashboard
-![Admin Dashboard](./screenshots/admin_dashboard.png)
+
+![Screenshot 2025-01-26 202440](https://github.com/user-attachments/assets/9a592ea9-cc46-4f87-b0d5-b49f1a992272)
+
+### User Dahboard
+
+![Screenshot 2025-01-26 202640](https://github.com/user-attachments/assets/14521eb8-973b-480c-8177-35b466a97f34)
+
+### Admin Category Management
+
+![Screenshot 2025-01-26 202728](https://github.com/user-attachments/assets/d3e93a02-be31-42ea-9088-548cd118d375)
+
+![Screenshot 2025-01-26 202745](https://github.com/user-attachments/assets/d58a9561-b997-44fb-b237-3e518fb97cb3)
+
+
+![Screenshot 2025-01-26 203005](https://github.com/user-attachments/assets/ca67da57-cb3f-46c6-a17e-d458d5fc5e5f)
+
+### Admin Product Management
+
+![Screenshot 2025-01-26 203557](https://github.com/user-attachments/assets/5cf8e023-06f5-42bd-a5c7-83731e568d84)
+
+
+
+### User 
+
+#### categories
+
+#### products
+
+
+### Shopping Cart
+
+
+### Order Placement
+
 
 
 ## How to Use the Application
