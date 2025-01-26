@@ -94,7 +94,7 @@
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" name="password" required>
         </div>
-        <button type="submit" class="btn btn-custom w-100"><a href="admin_dashboard.jsp">Login</a></button>
+        <button type="submit" class="btn btn-custom w-100"><a href="user_dashboard.jsp">Login</a></button>
 
         <div style="display: flex; justify-content: center; margin-top: 15px;">
             <button onclick="window.location.href='user_register.jsp'"

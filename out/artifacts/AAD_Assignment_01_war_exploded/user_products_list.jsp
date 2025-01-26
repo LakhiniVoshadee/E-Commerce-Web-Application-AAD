@@ -135,10 +135,10 @@
                     <a class="nav-link" href="about_us.jsp">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="user_category_list.jsp">Collections</a>
+                    <a class="nav-link" href="category.jsp">Collections</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="user_products_list.jsp">Products</a>
+                    <a class="nav-link" href="product.jsp">Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
@@ -176,12 +176,7 @@
                 <p class="card-text">Price: $<%= productDTO.getProduct_price() %></p>
                 <p class="card-text">Stock: <%= productDTO.getStock() %></p>
                 <div class="action-buttons">
-                    <a href="product_update.jsp?id=<%= productDTO.getProduct_id() %>" class="btn btn-primary btn-sm">
-                        Edit
-                    </a>
-                    <a href="product_delete.jsp?id=<%= productDTO.getProduct_id() %>" class="btn btn-danger btn-sm">
-                        Delete
-                    </a>
+
                     <form action="cart-add" method="post" class="d-inline">
                         <input type="hidden" name="product_id" value="<%= productDTO.getProduct_id() %>">
                         <input type="number" name="quantity" class="form-control d-inline w-auto" min="1" value="1" style="display: inline-block; width: 80px; height: 35px;">

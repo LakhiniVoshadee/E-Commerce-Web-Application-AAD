@@ -271,7 +271,7 @@
     <div class="nav-section">
         <div class="nav-section-title">Shopping</div>
         <div class="nav-item">
-            <a href="shop.jsp" class="nav-link">
+            <a href="order.jsp" class="nav-link">
                 <i class="fas fa-shopping-bag"></i>
                 Shop
             </a>
@@ -299,23 +299,31 @@
             </a>
         </div>
         <div class="nav-item">
+            <a href="user_category_list.jsp" class="nav-link">
+                <i class="fas fa-map-marker-alt"></i>
+                Categories
+            </a>
+        </div>
+        <div class="nav-item">
+            <a href="user_products_list.jsp" class="nav-link">
+                <i class="fas fa-map-marker-alt"></i>
+                Products
+            </a>
+        </div>
+
+        <div class="nav-item">
             <a href="orders.jsp" class="nav-link">
                 <i class="fas fa-box"></i>
                 Orders
             </a>
         </div>
         <div class="nav-item">
-            <a href="profile.jsp" class="nav-link">
+            <a href="user_update.jsp" class="nav-link">
                 <i class="fas fa-user"></i>
                 Profile
             </a>
         </div>
-        <div class="nav-item">
-            <a href="addresses.jsp" class="nav-link">
-                <i class="fas fa-map-marker-alt"></i>
-                Addresses
-            </a>
-        </div>
+
     </div>
 
     <div class="nav-section">

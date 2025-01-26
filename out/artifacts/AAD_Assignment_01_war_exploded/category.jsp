@@ -11,17 +11,17 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --light-gray: #f1f1f1;
-            --light-blue: #e0f7fa;
-            --dark-gray: #333333;
-            --medium-gray: #777777;
+            --light-gray: #fafafa;
+            --light-blue: #e8f4fc;
+            --dark-gray: #444444;
+            --medium-gray: #888888;
             --rich-white: #ffffff;
-            --light-black: #242424;
-            --highlight: #00bcd4;
+            --soft-gray: #f5f5f5;
+            --highlight: #a4d8f0;
         }
 
         body {
-            background-color: var(--light-gray);
+            background-color: var(--soft-gray);
             color: var(--dark-gray);
             font-family: 'Arial', sans-serif;
         }
@@ -37,13 +37,33 @@
             font-weight: 400;
             color: var(--dark-gray) !important;
         }
+        .navbar {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.9) !important;
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            padding: 1rem !important;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #666;
+        }
 
         .dashboard-header {
-            background: url('/api/placeholder/1920/300') center/cover;
+            background: url('/api/placeholder/1920/300') center/cover no-repeat;
+            background-color: var(--light-blue);
             position: relative;
             padding: 4rem 0;
             margin-bottom: 2rem;
-            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.6);
+            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.2);
         }
 
         .dashboard-header-content {
@@ -55,18 +75,18 @@
             background-color: var(--rich-white);
             border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .card-header {
-            background-color: var(--light-gray);
+            background-color: var(--soft-gray);
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             padding: 1.5rem;
             border-radius: 15px 15px 0 0;
         }
 
         .btn-dark {
-            background-color: var(--highlight);
+            background-color: black;
             color: var(--rich-white);
             border: none;
             padding: 0.8rem 1.5rem;
@@ -76,7 +96,7 @@
         }
 
         .btn-dark:hover {
-            background-color: var(--light-blue);
+            background-color: gray;
             transform: translateY(-2px);
         }
 
@@ -101,12 +121,12 @@
         }
 
         .modal-header {
-            background-color: var(--light-gray);
+            background-color: var(--soft-gray);
             padding: 1.5rem;
         }
 
         .modal-footer {
-            background-color: var(--light-gray);
+            background-color: var(--soft-gray);
             padding: 1.5rem;
         }
 
@@ -145,7 +165,7 @@
         }
 
         .category-card {
-            background-color: var(--light-gray);
+            background-color: var(--soft-gray);
             border-radius: 12px;
             overflow: hidden;
             transition: all 0.3s ease;
@@ -169,7 +189,7 @@
             left: 0;
             right: 0;
             height: 50%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.2), transparent);
         }
 
         .category-content {
@@ -213,13 +233,61 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg fixed-top bg-white navbar-light">
     <div class="container">
-        <span class="navbar-brand">LUXE FASHION ADMIN</span>
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <i class="bi bi-bag fs-4 me-2"></i>
+            <span class="fw-semibold">LUXE</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.jsp">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about_us.jsp">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="category.jsp">Collections</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="product.jsp">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+            <div class="d-flex align-items-center">
+                <a href="#" class="btn btn-outline-dark me-2">
+                    <i class="bi bi-search"></i>
+                </a>
+                <a href="user_register.jsp" class="btn btn-outline-dark me-2">
+                    <i class="bi bi-person"></i>
+                </a>
+                <a href="#" class="btn btn-outline-dark position-relative">
+                    <i class="bi bi-cart"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        3
+                    </span>
+                </a>
+            </div>
+        </div>
     </div>
 </nav>
 
+
+
 <!-- Dashboard Header -->
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="dashboard-header">
     <div class="container dashboard-header-content">
         <h1 class="display-4 mb-3">Category Management</h1>
@@ -244,17 +312,20 @@
         </div>
     </div>
 
-    <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Category Management</h5>
-            <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#categoryModal">
-                <i class="fas fa-plus me-2"></i>Add Category
-            </button>
-        </div>
-        <a href="category_list">Load All Categories</a><br>
-        <a href="category_update.jsp">Update Collection</a><br>
-        <a href="category_delete.jsp">Delete Collection</a>
-    </div>
+    <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#categoryModal">
+        <i class="fas fa-plus me-2"></i>Add Collections
+    </button>
+    <button class="btn btn-dark" data-bs-toggle="modal">
+        <a href="category_list">View Collections</a><br>
+    </button>
+
+    <div style="display: flex; justify-content: center; margin-top: 15px;">
+    <button onclick="window.location.href='index.jsp'"
+            style="color: #555; padding: 8px 20px; font-size: 1rem; font-weight: 600; border-radius: 50px; transition: all 0.3s ease; border: none; background: none; box-shadow: none; display: flex; align-items: center; justify-content: center !important;">
+        <i class="fas fa-arrow-left me-2" style="font-size: 1.2rem; color: #555 !important;"></i>
+        Click here to Back
+    </button>
+</div>
 </div>
 
 <!-- Add/Edit Category Modal -->

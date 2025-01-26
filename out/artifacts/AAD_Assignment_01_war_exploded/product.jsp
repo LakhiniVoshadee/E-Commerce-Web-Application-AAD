@@ -28,6 +28,24 @@
             font-size: 1.5rem;
             letter-spacing: 1px;
         }
+        .navbar {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            padding: 1rem !important;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #666;
+        }
         .card {
             border: none;
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
@@ -95,11 +113,63 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+<nav class="navbar navbar-expand-lg fixed-top bg-white navbar-light">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <i class="bi bi-bag fs-4 me-2"></i>
+            <span class="fw-semibold">LUXE</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.jsp">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about_us.jsp">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="category.jsp">Collections</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="product.jsp">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+            <div class="d-flex align-items-center">
+                <a href="#" class="btn btn-outline-dark me-2">
+                    <i class="bi bi-search"></i>
+                </a>
+                <a href="user_register.jsp" class="btn btn-outline-dark me-2">
+                    <i class="bi bi-person"></i>
+                </a>
+                <a href="#" class="btn btn-outline-dark position-relative">
+                    <i class="bi bi-cart"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        3
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+    <span class="navbar-brand">LUXE FASHION ADMIN</span>
+</div>
+<%--<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
     <div class="container">
         <span class="navbar-brand">LUXE FASHION ADMIN</span>
     </div>
-</nav>
+</nav>--%>
 
 <!-- Main Content -->
 <div class="container">
@@ -114,35 +184,10 @@
             <h2 class="mb-4">Products</h2>
             <div class="row g-4">
                 <!-- Product Card Template -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="product-card card h-100">
-                        <div class="position-relative">
-                            <img src="https://via.placeholder.com/400x200" class="product-image card-img-top" alt="Product Image">
-                            <span class="stock-badge">Stock: 25</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <h5 class="card-title mb-0">Product Name</h5>
-                                <span class="product-id">PRD001</span>
-                            </div>
-                            <p class="card-text">Product description goes here...</p>
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <div class="product-price">$299.99</div>
-                                <span class="badge bg-secondary">Category: 1</span>
-                            </div>
-                            <div class="product-actions mt-3">
-                                <button class="btn btn-sm btn-outline-dark me-2" onclick="editProduct('PRD001')">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button class="btn btn-sm btn-outline-danger" onclick="deleteProduct('PRD001')">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+
                     <a href="product_list">Load Products</a>
-                    <a href="product_update.jsp">Update Products</a>
-                </div>
+
+
             </div>
         </div>
     </div>

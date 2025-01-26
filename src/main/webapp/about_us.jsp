@@ -10,6 +10,24 @@
             background-color: #f4f4f4;
             font-family: 'Helvetica Neue', Arial, sans-serif;
         }
+        .navbar {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            padding: 1rem !important;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #666;
+        }
         .section-title {
             text-align: center;
             font-size: 2.5rem;
@@ -54,6 +72,58 @@
     </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg fixed-top bg-white navbar-light">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <i class="bi bi-bag fs-4 me-2"></i>
+            <span class="fw-semibold">LUXE</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.jsp">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="about_us.jsp">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="user_category_list.jsp">Collections</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="user_products_list.jsp">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+            <div class="d-flex align-items-center">
+                <a href="#" class="btn btn-outline-dark me-2">
+                    <i class="bi bi-search"></i>
+                </a>
+                <a href="user_register.jsp" class="btn btn-outline-dark me-2">
+                    <i class="bi bi-person"></i>
+                </a>
+                <a href="admin_dashboard.jsp" class="btn btn-outline-dark me-2">
+                    Admin
+                </a>
+                <a href="#" class="btn btn-outline-dark position-relative">
+                    <i class="bi bi-cart"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            3
+        </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
 <div class="container py-5">
     <h1 class="section-title">About Fashion Store</h1>
     <p class="section-content">

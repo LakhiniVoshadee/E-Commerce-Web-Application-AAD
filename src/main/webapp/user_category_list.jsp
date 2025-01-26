@@ -74,28 +74,9 @@
             font-size: 0.9rem;
         }
 
-        .action-buttons {
-            display: flex;
-            gap: 10px;
-            justify-content: flex-end;
-        }
 
-        .btn-edit, .btn-delete {
-            padding: 5px 10px;
-            font-size: 0.8rem;
-            background-color: var(--accent-gray);
-            color: var(--pure-white);
-            border: none;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-edit:hover, .btn-delete:hover {
-            background-color: var(--light-gray);
-            color: var(--secondary-black);
-            transform: scale(1.05);
-        }
     </style>
+
 </head>
 <body>
 
@@ -110,45 +91,24 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.jsp">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about_us.jsp">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="user_category_list.jsp">Collections</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="user_products_list.jsp">Products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="index.jsp">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about_us.jsp">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="category.jsp">Collections</a></li>
+                <li class="nav-item"><a class="nav-link" href="product.jsp">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
             </ul>
             <div class="d-flex align-items-center">
-                <a href="#" class="btn btn-outline-dark me-2">
-                    <i class="bi bi-search"></i>
-                </a>
-                <a href="user_register.jsp" class="btn btn-outline-dark me-2">
-                    <i class="bi bi-person"></i>
-                </a>
+                <a href="#" class="btn btn-outline-dark me-2"><i class="bi bi-search"></i></a>
+                <a href="user_register.jsp" class="btn btn-outline-dark me-2"><i class="bi bi-person"></i></a>
                 <a href="#" class="btn btn-outline-dark position-relative">
                     <i class="bi bi-cart"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        3
-                    </span>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span>
                 </a>
             </div>
         </div>
     </div>
 </nav>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 <div class="card-container">
     <% List<CategoryDTO> categoryDataList = (List<CategoryDTO>) request.getAttribute("categories");
         if (categoryDataList != null && !categoryDataList.isEmpty()) {
@@ -158,28 +118,29 @@
             <h5 class="card-title"><%= categoryDTO.getName() %></h5>
             <h6 class="card-subtitle">ID: <%= categoryDTO.getCategory_id() %></h6>
             <p class="card-text"><%= categoryDTO.getDescription() %></p>
-            <div class="action-buttons">
-                <a href="category_update.jsp?id=<%= categoryDTO.getCategory_id() %>" class="btn btn-edit">
-                    <i class="fas fa-edit"></i> Edit
-                </a>
-                <a href="category_delete.jsp?id=<%= categoryDTO.getCategory_id() %>" class="btn btn-delete">
-                    <i class="fas fa-trash"></i> Delete
-                </a>
-            </div>
         </div>
     </div>
-    <% }
+    <%  }
     } else { %>
     <div class="alert alert-info text-center">No categories found.</div>
     <% } %>
 
-    <div style="display: flex; justify-content: center; margin-top: 15px;">
-    <button onclick="window.location.href='category.jsp'"
-            style="color: black; padding: 8px 20px; font-size: 1rem; font-weight: 600; border-radius: 50px; transition: all 0.3s ease; border: none; background: none; box-shadow: none; display: flex; align-items: center; justify-content: center !important;">
-        <i class="fas fa-arrow-left me-2" style="font-size: 1.2rem; color: #555 !important;"></i>
-        Click here to Back
-    </button>
+
 </div>
+<div class="card-container">
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Watches</h5>
+            <h6 class="card-subtitle">ID:1</h6>
+            <p class="card-text">pppppp</p>
+        </div>
+    </div>
+
+    <div class="alert alert-info text-center">No categories found.</div>
+
+
+
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>

@@ -266,7 +266,7 @@
             </a>
         </div>
         <div class="nav-item">
-            <a href="user-management.jsp" class="nav-link">
+            <a href="user_list" class="nav-link">
                 <i class="fas fa-users"></i>
                 Users
             </a>

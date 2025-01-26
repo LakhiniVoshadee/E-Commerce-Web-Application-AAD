@@ -172,15 +172,18 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.jsp">Home</a>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="about_us.jsp">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"  href="category.jsp">Collections</a>
+                    <a class="nav-link"  href="user_category_list.jsp">Collections</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="product.jsp">Products</a>
+                    <a class="nav-link" href="user_products_list.jsp">Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
@@ -192,6 +195,9 @@
                 </a>
                 <a href="user_register.jsp" class="btn btn-outline-dark me-2">
                     <i class="bi bi-person"></i>
+                </a>
+                <a href="admin_dashboard.jsp" class="btn btn-outline-dark me-2">
+                    Admin
                 </a>
                 <a href="#" class="btn btn-outline-dark position-relative">
                     <i class="bi bi-cart"></i>
