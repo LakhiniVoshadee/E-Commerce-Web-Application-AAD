@@ -172,14 +172,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
+
                 <li class="nav-item">
-                    <a class="nav-link" href="category_update.jsp">Update Category</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="category_delete.jsp">Delete Category</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About Us</a>
+                    <a class="nav-link" href="about_us.jsp">About Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"  href="category.jsp">Collections</a>

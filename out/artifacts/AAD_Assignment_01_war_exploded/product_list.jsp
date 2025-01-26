@@ -76,6 +76,12 @@
                     <a href="product_delete.jsp?id=<%= productDTO.getProduct_id() %>" class="btn btn-danger btn-sm">
                         Delete
                     </a>
+
+                    <form action="cart-add" method="post">
+                        <input type="hidden" name="product_id" value="<%= productDTO.getProduct_id() %>">
+                        <input type="number" name="quantity" min="1" value="1">
+                        <button type="submit" class="btn btn-primary">Add to Cart</button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -11,32 +11,31 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --dark-black: #0a0a0a;
-            --medium-black: #1a1a1a;
-            --light-black: #2a2a2a;
+            --light-gray: #f1f1f1;
+            --light-blue: #e0f7fa;
             --dark-gray: #333333;
-            --medium-gray: #666666;
-            --light-gray: #999999;
-            --off-white: #f5f5f5;
+            --medium-gray: #777777;
+            --rich-white: #ffffff;
+            --light-black: #242424;
+            --highlight: #00bcd4;
         }
 
         body {
-            background-color: var(--dark-black);
-            color: var(--off-white);
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
             font-family: 'Arial', sans-serif;
         }
 
         .navbar {
-            background: linear-gradient(to right, var(--dark-black), var(--medium-black));
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            background-color: var(--light-blue);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             padding: 1rem 0;
         }
 
         .navbar-brand {
             font-size: 1.8rem;
-            letter-spacing: 3px;
-            font-weight: 300;
-            color: var(--off-white) !important;
+            font-weight: 400;
+            color: var(--dark-gray) !important;
         }
 
         .dashboard-header {
@@ -44,16 +43,7 @@
             position: relative;
             padding: 4rem 0;
             margin-bottom: 2rem;
-        }
-
-        .dashboard-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(0,0,0,0.9), rgba(0,0,0,0.6));
+            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.6);
         }
 
         .dashboard-header-content {
@@ -62,22 +52,22 @@
         }
 
         .card {
-            background: var(--medium-black);
-            border: 1px solid rgba(255,255,255,0.1);
+            background-color: var(--rich-white);
+            border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .card-header {
-            background: var(--light-black);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            background-color: var(--light-gray);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             padding: 1.5rem;
             border-radius: 15px 15px 0 0;
         }
 
         .btn-dark {
-            background: var(--off-white);
-            color: var(--dark-black);
+            background-color: var(--highlight);
+            color: var(--rich-white);
             border: none;
             padding: 0.8rem 1.5rem;
             font-weight: 500;
@@ -86,45 +76,38 @@
         }
 
         .btn-dark:hover {
-            background: var(--light-gray);
+            background-color: var(--light-blue);
             transform: translateY(-2px);
         }
 
-        .modal-content {
-            background: var(--medium-black);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 15px;
-        }
-
-        .modal-header {
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding: 1.5rem;
-        }
-
-        .modal-footer {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding: 1.5rem;
-        }
-
         .form-control {
-            background: var(--light-black);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: var(--off-white);
+            background-color: var(--light-gray);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: var(--dark-gray);
             padding: 0.8rem;
             border-radius: 8px;
         }
 
         .form-control:focus {
-            background: var(--light-black);
-            border-color: var(--light-gray);
-            color: var(--off-white);
+            background-color: var(--light-gray);
+            border-color: var(--highlight);
             box-shadow: none;
         }
 
-        .form-label {
-            color: var(--light-gray);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
+        .modal-content {
+            background-color: var(--rich-white);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+        }
+
+        .modal-header {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+        }
+
+        .modal-footer {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
         }
 
         .stats-container {
@@ -135,20 +118,20 @@
         }
 
         .stat-card {
-            background: linear-gradient(45deg, var(--medium-black), var(--light-black));
+            background-color: var(--light-blue);
             padding: 1.5rem;
             border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .stat-number {
             font-size: 2rem;
             font-weight: 300;
-            color: var(--off-white);
+            color: var(--dark-gray);
         }
 
         .stat-label {
-            color: var(--light-gray);
+            color: var(--medium-gray);
             font-size: 0.9rem;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -162,7 +145,7 @@
         }
 
         .category-card {
-            background: var(--medium-black);
+            background-color: var(--light-gray);
             border-radius: 12px;
             overflow: hidden;
             transition: all 0.3s ease;
@@ -170,7 +153,7 @@
 
         .category-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
         .category-image {
@@ -186,7 +169,7 @@
             left: 0;
             right: 0;
             height: 50%;
-            background: linear-gradient(to top, var(--medium-black), transparent);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
         }
 
         .category-content {
@@ -194,7 +177,7 @@
         }
 
         .category-id {
-            color: var(--light-gray);
+            color: var(--medium-gray);
             font-size: 0.9rem;
             letter-spacing: 1px;
         }
@@ -230,7 +213,7 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
         <span class="navbar-brand">LUXE FASHION ADMIN</span>
     </div>
@@ -244,9 +227,8 @@
     </div>
 </div>
 
-
+<!-- Stats -->
 <div class="container">
-
     <div class="stats-container">
         <div class="stat-card">
             <div class="stat-number">24</div>
@@ -262,47 +244,15 @@
         </div>
     </div>
 
-
     <div class="card">
-        <div class="card-header d-flex justify-content-between align-M
-      items-center">
+        <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="mb-0">Category Management</h5>
             <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#categoryModal">
                 <i class="fas fa-plus me-2"></i>Add Category
             </button>
         </div>
-        <a href="category_list">Load All Customers</a><br>
-        <a href="category_update.jsp">Update Collection</a>
-        <a href="category_delete.jsp">Delete Collection</a>
-        <%--<div class="card-body">
-            <div class="category-grid">
-                <%
-                    List<CategoryDTO> categoryDataList = (List<CategoryDTO>) request.getAttribute("categories");
-                    if (categoryDataList != null && !categoryDataList.isEmpty()) {
-                        for (CategoryDTO categoryDTO : categoryDataList) {
-                %>
-                <div class="category-card">
-                    <div class="category-image"></div>
-                    <div class="category-content">
-                        <div class="category-id">ID: <%= categoryDTO.getCategory_id() %></div>
-                        <h4 class="mt-2 mb-3"><%= categoryDTO.getName() %></h4>
-                        <p class="text-muted mb-3"><%= categoryDTO.getDescription() %></p>
-                        <div class="category-actions">
-                            <button class="btn btn-outline-light action-btn">
-                                <i class="fas fa-edit me-2"></i>Edit
-                            </button>
-                            <button class="btn btn-outline-danger action-btn">
-                                <i class="fas fa-trash me-2"></i>Delete
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <%
-                        }
-                    }
-                %>
-            </div>
-        </div>--%>
+        <a href="category_list">Load All Categories</a><br>
+
     </div>
 </div>
 
@@ -325,7 +275,7 @@
                         <textarea class="form-control" rows="3" name="description" id="category_description" required></textarea>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-dark">Save Category</button>
                     </div>
                 </form>

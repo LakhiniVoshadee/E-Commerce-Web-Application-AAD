@@ -10,16 +10,23 @@
     <style>
         :root {
             --sidebar-width: 280px;
+            --dark-bg: #1a1a1a;
+            --gray-bg: #2d2d2d;
+            --light-bg: #f4f4f4;
+            --text-light: #e0e0e0;
+            --text-dark: #333;
+            --accent-color: #8e44ad;
         }
 
         body {
-            background-color: #f8f9fa;
+            background-color: var(--light-bg);
             min-height: 100vh;
+            font-family: 'Arial', sans-serif;
         }
 
         .admin-sidebar {
             width: var(--sidebar-width);
-            background: #1a1c23;
+            background: var(--dark-bg);
             min-height: 100vh;
             position: fixed;
             left: 0;
@@ -34,7 +41,7 @@
         }
 
         .brand-title {
-            color: white;
+            color: var(--text-light);
             font-size: 1.5rem;
             font-weight: 600;
             letter-spacing: 1px;
@@ -46,7 +53,7 @@
         }
 
         .nav-section-title {
-            color: #6c757d;
+            color: #888;
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -60,7 +67,7 @@
         }
 
         .nav-link {
-            color: #a0aec0;
+            color: var(--text-light);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -75,7 +82,7 @@
         }
 
         .nav-link.active {
-            background: #3182ce;
+            background: var(--accent-color);
             color: white;
         }
 
@@ -116,7 +123,7 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: #e2e8f0;
+            background: #ddd;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -130,14 +137,14 @@
         }
 
         .stat-card {
-            background: white;
+            background: #fff;
             border-radius: 0.5rem;
             padding: 1.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .stat-title {
-            color: #6c757d;
+            color: #777;
             font-size: 0.875rem;
             margin-bottom: 0.5rem;
         }
@@ -146,6 +153,7 @@
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 0;
+            color: var(--text-dark);
         }
 
         .stat-change {
@@ -154,10 +162,10 @@
         }
 
         .recent-activity {
-            background: white;
+            background: #fff;
             border-radius: 0.5rem;
             padding: 1.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .activity-title {
@@ -183,7 +191,7 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: #ebf8ff;
+            background: #f1f1f1;
             color: #3182ce;
             display: flex;
             align-items: center;
