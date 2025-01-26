@@ -65,12 +65,12 @@ This is a fully functional e-commerce web application developed using JavaEE, JD
 
 ![Screenshot 2025-01-26 203557](https://github.com/user-attachments/assets/5cf8e023-06f5-42bd-a5c7-83731e568d84)
 ![Screenshot 2025-01-26 203822](https://github.com/user-attachments/assets/12e0dbe1-4b8d-4e82-a54e-d8e1cd6f0df6)
-![Uploading Screenshot 2025-01-26 203840.png…]()
+
 
 
 ### User 
 #### categories
-![Uploading Screenshot 2025-01-26 204004.png…]()
+
 
 
 #### products
